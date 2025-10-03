@@ -1,0 +1,19 @@
+[project]
+name = "pylocksmith"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "argon2-cffi>=25.1.0",
+    "bandit>=1.8.6",
+    "django-axes>=8.0.0",
+    "gunicorn>=23.0.0",
+    "itsdangerous>=2.2.0",
+    "passlib>=1.7.4",
+    "pycryptodome>=3.23.0",
+    "pynacl>=1.6.0",
+    "python-decouple>=3.8",
+    "python-gnupg>=0.5.5",
+    "secure>=0.3.0",
+]
