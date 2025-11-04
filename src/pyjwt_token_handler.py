@@ -10,7 +10,7 @@ SECRET_KEY = "super_secure_key"
 def generate_token(user_id):
     payload = {
         "user_id": user_id,
-        "exp": datetime.datetime.utcnow() + datetime.timedelta(hours=1),
+        "exp": datetime.datetime.now(datetime.UTC) + datetime.timedelta(hours=1),
     }
     return jwt.encode(payload, SECRET_KEY, algorithm="HS256")
 
