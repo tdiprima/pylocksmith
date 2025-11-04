@@ -9,9 +9,17 @@ secure_headers = Secure()
 def app(environ, start_response):
     status = "200 OK"
     headers = [("Content-type", "text/plain")]
-    headers.extend(
-        secure_headers.headers.items()
-    )  # Add security headers to the response
+
+    # Add security headers to the response
+    # The Secure library automatically adds headers like:
+    # - Strict-Transport-Security: Enforces HTTPS connections
+    # - X-Content-Type-Options: Prevents MIME sniffing attacks
+    # - X-Frame-Options: Prevents clickjacking attacks
+    # - Content-Security-Policy: Prevents XSS and injection attacks
+    # - Referrer-Policy: Controls referrer information
+    # - Permissions-Policy: Controls browser features
+    headers.extend(secure_headers.headers.items())
+
     start_response(status, headers)
     return [b"Welcome to the secure app!"]
 
