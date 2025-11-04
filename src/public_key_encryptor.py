@@ -1,5 +1,6 @@
 # Easy public-key encryption - send secret messages that only the right person can read!
 
+from icecream import ic
 from nacl.public import Box, PrivateKey
 
 # Generate keys for sender
@@ -17,4 +18,4 @@ encrypted = box.encrypt(b"Secret greeting")
 # Decrypt using recipient's Box (recipient's private + sender's public)
 recipient_box = Box(recipient_sk, sender_pk)
 decrypted = recipient_box.decrypt(encrypted)
-print(decrypted.decode())  # Outputs: Secret greeting
+ic(decrypted.decode())  # Outputs: Secret greeting
