@@ -9,7 +9,9 @@ secure_headers = Secure()
 def app(environ, start_response):
     status = "200 OK"
     headers = [("Content-type", "text/plain")]
-    headers.extend(secure_headers.headers.items())  # Add security headers to the response
+    headers.extend(
+        secure_headers.headers.items()
+    )  # Add security headers to the response
     start_response(status, headers)
     return [b"Welcome to the secure app!"]
 
