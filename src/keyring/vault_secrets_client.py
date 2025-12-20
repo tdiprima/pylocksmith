@@ -1,6 +1,7 @@
 """
 Initializes HashiCorp Vault client and demonstrates basic properties/ops.
 In production, use real token/URL; here shows auth status and readiness.
+TODO: Integrate with actual secret read/write operations.
 """
 
 import sys

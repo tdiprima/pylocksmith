@@ -1,6 +1,8 @@
 """
 Shows proper password hashing with passlib using bcrypt.
 Hashes a password and verifies it (and a wrong one).
+Requires: pip install passlib[bcrypt]
+TODO: In production, use proper error handling and secure password input.
 """
 
 import sys
