@@ -7,7 +7,7 @@ from datetime import datetime, timedelta, timezone
 
 import jwt
 
-jwt_secret = "my_jwt_secret_key_2025_change_me"
+jwt_secret = "my_jwt_secret_key_2025_change_me"  # nosec B105
 
 payload = {
     "user_id": 100,

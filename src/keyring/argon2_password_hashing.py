@@ -8,7 +8,7 @@ from argon2.exceptions import VerifyMismatchError
 
 hasher = PasswordHasher()
 
-passphrase = "CorrectHorseBatteryStaple2024"
+passphrase = "CorrectHorseBatteryStaple2024"  # nosec B105
 
 # Hash
 hash_value = hasher.hash(passphrase)

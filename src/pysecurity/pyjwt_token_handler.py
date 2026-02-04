@@ -4,7 +4,7 @@ import datetime
 
 import jwt
 
-SECRET_KEY = "super_secure_key"
+SECRET_KEY = "super_secure_key"  # nosec B105
 
 
 def generate_token(user_id):

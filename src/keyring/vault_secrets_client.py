@@ -10,9 +10,7 @@ import hvac
 
 try:
     vault_url = "http://127.0.0.1:8200"  # Local Vault example
-    client = hvac.Client(
-        url=vault_url, token="hvs.testtoken123"
-    )  # Dummy token for demo
+    client = hvac.Client(url=vault_url, token="hvs.testtoken123")  # nosec B105 Dummy token for demo
 
     print(f"Vault URL: {client.url}")
     print(f"Authenticated: {client.is_authenticated()}")

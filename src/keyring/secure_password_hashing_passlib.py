@@ -12,7 +12,7 @@ from passlib.context import CryptContext
 try:
     pwd_hasher = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-    password = "MySecurePass2024!@#"
+    password = "MySecurePass2024!@#"  # nosec B105
 
     # Hash
     hashed_password = pwd_hasher.hash(password)

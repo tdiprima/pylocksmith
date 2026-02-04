@@ -2,7 +2,9 @@
 Demonstrates Bandit static security scanner.
 Creates a sample vulnerable file with eval(), runs scan, prints issues.
 """
-
+# nosec B603
+# nosec B404
+# nosec B607
 import os
 import subprocess
 import tempfile

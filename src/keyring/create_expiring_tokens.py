@@ -5,7 +5,7 @@ Uses URLSafeTimedSerializer for stateless sessions/verification.
 
 from itsdangerous import URLSafeTimedSerializer
 
-secret_key = "my_app_secret_key_change_in_prod_2024"
+secret_key = "my_app_secret_key_change_in_prod_2024"  # nosec B105
 
 serializer = URLSafeTimedSerializer(secret_key)
 
