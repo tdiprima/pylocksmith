@@ -6,6 +6,7 @@ Creates a sample vulnerable file with eval(), runs scan, prints issues.
 import os
 import subprocess
 import tempfile
+from pathlib import Path
 
 # Create temp vulnerable code
 vuln_code = """
@@ -32,4 +33,4 @@ try:
     if result.stderr:
         print("Warnings:", result.stderr)
 finally:
-    os.unlink(vuln_file)
+    Path(vuln_file).unlink()
