@@ -1,15 +1,15 @@
 # Simple AES encryption example - keeps your messages safe and secure!
 
-from Crypto.Cipher import AES
-from Crypto.Random import get_random_bytes
+import os
+
+from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 from icecream import ic
 
-key = get_random_bytes(32)
-cipher = AES.new(key, AES.MODE_GCM)
-nonce = cipher.nonce
-ciphertext, tag = cipher.encrypt_and_digest(b"Confidential report")
+key = AESGCM.generate_key(bit_length=256)
+aesgcm = AESGCM(key)
+nonce = os.urandom(12)
+ciphertext = aesgcm.encrypt(nonce, b"Confidential report", None)
 
 # For completeness: Decrypt to verify
-decrypt_cipher = AES.new(key, AES.MODE_GCM, nonce=nonce)
-plaintext = decrypt_cipher.decrypt_and_verify(ciphertext, tag)
+plaintext = aesgcm.decrypt(nonce, ciphertext, None)
 ic(plaintext.decode())  # Outputs: Confidential report

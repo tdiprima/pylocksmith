@@ -2,11 +2,10 @@
 Demonstrates Bandit static security scanner.
 Creates a sample vulnerable file with eval(), runs scan, prints issues.
 """
-# nosec B603
-# nosec B404
-# nosec B607
+
 import os
-import subprocess
+import shutil
+import subprocess  # nosec B404
 import tempfile
 from pathlib import Path
 
@@ -24,8 +23,9 @@ with tempfile.NamedTemporaryFile(mode="w", suffix=".py", delete=False) as f:
 
 try:
     # Run bandit on the vuln file
-    result = subprocess.run(
-        ["bandit", "-r", os.path.dirname(vuln_file)],
+    bandit_path = shutil.which("bandit")
+    result = subprocess.run(  # nosec B603
+        [bandit_path, "-r", os.path.dirname(vuln_file)],
         capture_output=True,
         text=True,
         timeout=10,
